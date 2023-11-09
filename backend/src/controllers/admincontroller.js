@@ -1,4 +1,5 @@
 const adminSchema = require("../models/adminSchema");
+const crypto = require("crypto")
 const jwt = require("jsonwebtoken");
 const jwtKey = "e-comm";
 
@@ -111,6 +112,43 @@ class adminController {
       });
     }
   }
+
+  //forgot password
+
+   async forgotpassword (req, res){
+    try {
+        const { email, newPassword } = req.body;
+
+        if (!newPassword) {
+            return res.status(400).json({ message: 'New password is required.' });
+        }
+
+        // email exists in the database
+        const user = await adminSchema.findOne({ email });
+
+        if (!user) {
+            return res.status(404).json({ message: 'Email not found.' });
+        }
+
+        // Generate a password reset token
+        const resetToken = crypto.randomBytes(20).toString('hex');
+
+        // Set an expiration time for the reset token (e.g., 1 hour)
+        const resetTokenExpiration = Date.now() + 3600000;
+
+        // Save the reset token and its expiration in the user's document
+        user.resetPasswordToken = resetToken;
+        user.resetPasswordExpires = resetTokenExpiration;
+        user.password = newPassword; // Set the new password
+
+        await user.save();
+
+        res.json({ message: 'Password reset successful.' });
+    } catch (error) {
+        console.error('Error in /forgotpassword:', error);
+        res.status(500).json({ message: 'Internal server error.' });
+    }
+}
 }
 
 module.exports = new adminController();

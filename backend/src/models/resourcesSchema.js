@@ -46,11 +46,12 @@ const resourcesSchema = new mongoose.Schema({
     },
   },
   password: { type: String, required: true },
-  country: {
+
+  address: {
     type: String,
     required: true,
   },
-  address: {
+  country: {
     type: String,
     required: true,
   },

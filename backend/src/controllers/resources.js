@@ -6,17 +6,27 @@ const jwtKey = "e-comm";
 class resourcesController {
   //signup resourecs
   async signup(req, resp) {
-    const { name, email, mobileNo, password } = req.body;
+    const {
+      name,
+      email,
+      officialEmail,
+      otherMobileNo,
+       mobileNo,
+      password,
+      address,
+      country,
+      technology,
+    } = req.body;
 
     try {
-      const existsMail = await adminSchema.findOne({ email: email });
+      const existsMail = await resourcesSchema.findOne({ email: email });
       if (existsMail) {
         return resp.status(400).json({
           message: "Email already exists",
         });
       }
 
-      const existsMobileNumber = await adminSchema.findOne({
+      const existsMobileNumber = await resourcesSchema.findOne({
         mobileNo: mobileNo,
       });
       if (existsMobileNumber) {
@@ -25,11 +35,16 @@ class resourcesController {
         });
       }
 
-      const result = await adminSchema.create({
+      const result = await resourcesSchema.create({
         name,
         email,
+        officialEmail,
+        otherMobileNo,
         mobileNo,
         password,
+        address,
+        country,
+        technology,
       });
 
       if (result) {
@@ -66,7 +81,7 @@ class resourcesController {
   //login resources
   async login(req, resp) {
     try {
-      const check = await adminSchema.findOne({ email: req.body.email });
+      const check = await resourcesSchema.findOne({ email: req.body.email });
 
       console.log("Check Response:", check);
       if (!check) {
