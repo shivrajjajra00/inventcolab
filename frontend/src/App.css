@@ -1,0 +1,207 @@
+*{
+box-sizing: border-box;
+}
+
+body{
+background-color: #f5f6ff;
+}
+
+.container{
+padding: 10px;
+max-width: fit-content;
+margin:50pxauto;
+}
+
+.btn{
+border: none;
+padding: 7px15px;
+font-size: 18px;
+}
+
+.btn-add{
+border-radius: 5px;
+}
+
+.addContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 999; /* Ensure it's on top of other content */
+}
+
+.addContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addContainer label {
+  font-weight: bold;
+}
+
+.addContainer input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.addContainer button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.addContainerforminput{
+
+font-size: 18px;
+
+padding: 5px;
+
+margin-top: 5px;
+
+margin-bottom: 10px;
+
+}
+
+.addContainerformbutton{
+
+background-color: royalblue;
+
+color: white;
+
+font-weight: 500;
+
+margin-top: 20px;
+
+}
+
+.addContainerform.close-btn{
+ margin-left: auto;
+  font-size: 18px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid #000;
+  cursor: pointer;
+  
+  }
+
+  .close-btn{
+    text-align: right;
+    cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+  color: red; /* Change the color */
+  
+  }
+
+.tableContainertabletheadtr{
+
+background-color: #f0eaea;
+
+  }
+
+.tableContainertabletheadtrth,
+
+.tableContainertabletbodytrtd{
+
+max-width: 200px;
+
+padding: 7px;
+  }
+
+.tableContainertabletbodytrtd{
+
+border-bottom: 1pxsolid#c9c5c2;
+
+  }
+
+.tableContainer{
+
+margin-top: 50px;
+
+box-shadow: 5px5px10pxrgba(0,0,0,0.2);
+
+border-radius: 10px;
+
+border: 5px solid ;
+
+  }
+
+.btn-edit,
+
+.btn-delete{
+
+font-size: 16px;
+
+padding: 5px10px;
+
+margin: 0px5px;
+
+border-radius: 5px;
+
+  }
+
+.btn-edit{
+
+background-color: yellow;
+
+  }
+
+
+
+.btn-delete{
+
+background-color: red;
+
+  }
+
+/* Add styles for active and inactive buttons */
+.status-button {
+  border: none;
+  padding: 5px 10px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.status-button.active {
+  background-color: green;
+}
+
+.status-button.inactive {
+  background-color: red;
+}
+
+
+/* styles.css */
+.navbar {
+  background-color: rgb(207, 225, 233);
+  padding: 10px;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+}
