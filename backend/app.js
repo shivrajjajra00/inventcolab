@@ -1,10 +1,8 @@
 const connection = require("./connection")
-const adminRoutes = require("./src/routers/adminRouter")
-const resourcesRouter = require("./src/routers/resourcesRouter")
 
+const adminRoutes = require("./src/routers/adminrouter")
 
 const express = require("express");
-
 const app = express();
 app.use(express.json());
 
