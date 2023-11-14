@@ -15,6 +15,6 @@ app.use("/admin", adminRoutes);
 
 app.use("/resources", resourcesRouter);
 
-app.listen(4041, () => {
+app.listen(4040, () => {
   console.log("server run");
 });
