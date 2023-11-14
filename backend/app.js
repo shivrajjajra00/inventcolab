@@ -5,14 +5,19 @@ const cors = require("cors");
 const resourcesRouter = require("./src/routers/resourcesRouter");
 const express = require("express");
 const app = express();
+const clientRoutes = require("./src/routers/clientrouter");
 
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true, // Enable access-control-allow-credentials
+  optionSuccessStatus: 200,
+};
 
-
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/admin", adminRoutes);
 
-
+app.use("/user", clientRoutes);
 app.use("/resources", resourcesRouter);
 
 app.listen(4040, () => {
