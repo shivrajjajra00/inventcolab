@@ -125,7 +125,6 @@ class clientController {
     }
   }
 
-
   async updateUserById(req, res) {
     try {
       const userId = req.params.id;
@@ -164,12 +163,9 @@ class clientController {
       });
     }
   }
-
-   
 }
 
-
-
+console.log("908900");
 const clientcontroller = new clientController();
 
 module.exports = clientcontroller;
