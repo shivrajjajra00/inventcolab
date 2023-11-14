@@ -6,7 +6,9 @@ export default  function Invoice (){
   const [name,setName] = useState("")
    
   const data = {
-    name : name
+    name : name,
+    
+
   }
 
 const HandleSignUp = async ()=>{
