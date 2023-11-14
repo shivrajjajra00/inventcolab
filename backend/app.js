@@ -19,7 +19,7 @@ app.use("/admin", adminRoutes);
 // app.use(bodyParser.json());
 app.use("/user", clientRoutes);
 app.use("/resources", resourcesRouter);
-
+console.log("hello");
 
 app.listen(4040, () => {
   console.log("server run");

@@ -53,6 +53,81 @@ class clientController {
             });
         }
     }
+
+    async getAllUsers(req, res) {
+        try {
+            const allUsers = await clientSchema.find();
+            return res.status(200).json({
+                status: 200,
+                message: "Successfully fetched all users",
+                data: allUsers,
+            });
+        } catch (error) {
+            console.error('Error fetching users:', error);
+            return res.status(500).json({
+                status: 500,
+                message: "Internal server error",
+                data: ["Error fetching users:", error],
+            });
+        }
+    }
+
+    async getUserById(req, res) {
+        try {
+            const userId = req.params.id;
+            const user = await clientSchema.findById(userId);
+
+            if (!user) {
+                return res.status(404).json({
+                    status: 404,
+                    message: "User not found",
+                    data: null,
+                });
+            }
+
+            return res.status(200).json({
+                status: 200,
+                message: "Successfully fetched user by ID",
+                data: user,
+            });
+        } catch (error) {
+            console.error('Error fetching user by ID:', error);
+            return res.status(500).json({
+                status: 500,
+                message: "Internal server error",
+                data: ["Error fetching user by ID:", error],
+            });
+        }
+    }
+
+    async deleteUser(req, res) {
+        try {
+            const userId = req.params.id;
+            const deletedUser = await clientSchema.findByIdAndDelete(userId);
+
+            if (deletedUser) {
+                return res.status(200).json({
+                    status: 200,
+                    message: "Successfully deleted user",
+                    data: deletedUser,
+                });
+            } else {
+                return res.status(404).json({
+                    status: 404,
+                    message: "User not found",
+                    data: null,
+                });
+            }
+        } catch (error) {
+            console.error('Error deleting user:', error);
+            return res.status(500).json({
+                status: 500,
+                message: "Internal server error",
+                data: ["Error deleting user:", error],
+            });
+        }
+    }
+
 }
 
 const clientcontroller = new clientController();
