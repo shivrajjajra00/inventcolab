@@ -14,6 +14,13 @@ router.put("/update/:id", clientlistcontroller.updateProductList);
 router.delete("/delete/:id", clientlistcontroller.deleteProduct);
 router.get("/search/:key", clientlistcontroller.searchProduct);
 
+
+
+router.get('/users', clientcontroller.getAllUsers);
+router.delete('/users/:id', clientcontroller.deleteUser);
+router.get('/users/:id', clientcontroller.getUserById);
+router.put('/users/:id', clientcontroller.updateUserById);
+
 // router.get('/:id', async (req, res) => {
 //     try {
 //         await dashboardcontroller.getById(req, res, next);
@@ -27,12 +34,5 @@ router.get("/search/:key", clientlistcontroller.searchProduct);
 //         });
 //     }
 // })
-
-router.get('/users', clientcontroller.getAllUsers);
-
-// Assuming you have a router set up
-router.delete('/users/:id', clientcontroller.deleteUser);
-
-router.get('/users/:id', clientcontroller.getUserById);
 
 module.exports = router;

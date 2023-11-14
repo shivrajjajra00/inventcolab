@@ -125,6 +125,42 @@ class clientController {
         }
     }
 
+    async updateUserById(req, res) {
+        try {
+            const userId = req.params.id;
+            const updateData = req.body;
+
+            // Validate updateData if needed
+
+            const updatedUser = await clientSchema.findByIdAndUpdate(userId, updateData, {
+                new: true, // Return the modified document
+                runValidators: true, // Run validators for update
+            });
+
+            if (!updatedUser) {
+                return res.status(404).json({
+                    status: 404,
+                    message: "User not found",
+                    data: null,
+                });
+            }
+
+            return res.status(200).json({
+                status: 200,
+                message: "Successfully updated user",
+                data: updatedUser,
+            });
+        } catch (error) {
+            console.error('Error updating user:', error);
+            return res.status(500).json({
+                status: 500,
+                message: "Internal server error",
+                data: ["Error updating user:", error],
+            });
+        }
+    }
+
+
 }
 
 
