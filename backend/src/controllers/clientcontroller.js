@@ -5,10 +5,14 @@ const clientSchema = require('../models/clientSchema.js');
 
 class clientController {
     async createUser(req, resp) {
+
+
+        console.log('foo');
         const { name, email, mobileNo, country, address, pincode } = req.body;
 
         try {
             const existsMail = await clientSchema.findOne({ email: email });
+            console.log('req.body', req.body);
             if (existsMail) {
                 return resp.status(400).json({
                     message: "Email already exists",
@@ -32,7 +36,7 @@ class clientController {
                 address,
                 pincode
             });
-
+            console.log('result', result);
             if (result) {
                 return resp.status(201).json({
                     status: 201,
@@ -41,6 +45,7 @@ class clientController {
                 });
             }
         } catch (error) {
+            console.log('error', error);
             return resp.status(500).json({
                 status: 500,
                 message: "Internal server error",
