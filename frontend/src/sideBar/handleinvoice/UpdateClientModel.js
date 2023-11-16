@@ -5,7 +5,7 @@ const UpdateClient = (props) => {
   const { onCancel, clientId, getClientlist } = props;
 
   const [clientData, setClientData] = useState({});
-  // const [isModalOpen, setIsModalOpen] = useState(false);
+ 
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -147,7 +147,7 @@ const UpdateClient = (props) => {
         <button onClick={() => onCancel()} className="cancel_btn">
           cancel
         </button>
-        <button onClick={UpdateClientData} className="ok_btn">
+        <button  onClick={UpdateClientData} className="ok_btn">
           OK
         </button>
       </div>

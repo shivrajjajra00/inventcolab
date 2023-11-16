@@ -1,12 +1,45 @@
 import { useState, useEffect } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
-
+import { MdDeleteForever } from "react-icons/md";
+import AddClientModel from "./AddClientModel";
 import UpdateModel from "./UpdateClientModel";
 
 export default function HandleInvoice() {
   const [clients, setClients] = useState([]);
   const [editClientId, setEditClientId] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+  };
+
+  const handleOpen = () => {
+    setShow(true);
+  };
+
+  //Delete client data --------------------------------
+
+  const deleteClientData = async (clientId) => {
+    try {
+      let token = localStorage.getItem("token");
+      let result = await fetch(`http://localhost:4040/user/users/${clientId}`, {
+        method: "delete",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      result = await result.json();
+      if (result) {
+        getClientlist();
+        console.log(result);
+      }
+    } catch (error) {
+      console.log("Error fetching product delete:", error);
+    }
+  };
 
   const getClientlist = async () => {
     let token = localStorage.getItem("token");
@@ -53,7 +86,9 @@ export default function HandleInvoice() {
             type="text"
             placeholder="Search Customer"
           />
-          <button>Add Customer</button>
+          <button type="button" onClick={handleOpen}>
+            Add Customer
+          </button>
         </div>
 
         <table className="product-table">
@@ -77,11 +112,17 @@ export default function HandleInvoice() {
                 <td>{client.country}</td>
                 <td>{client.address}</td>
                 <td>{client.pincode}</td>
-                <td>
-                  <button onClick={() => handleEditClick(client._id)}>
+                <td className="action_button">
+                  <button
+                    className="faedit"
+                    onClick={() => handleEditClick(client._id)}
+                  >
                     <FaEdit />
                   </button>
-                  <button>
+                  <button
+                    className="fatrash"
+                    onClick={() => deleteClientData(client._id)}
+                  >
                     <FaTrash />
                   </button>
                 </td>
@@ -90,6 +131,8 @@ export default function HandleInvoice() {
           </tbody>
         </table>
       </div>
+
+      <AddClientModel show={show} handleClose={handleClose} />
     </>
   );
 }
