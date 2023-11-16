@@ -36,28 +36,28 @@ class clientController {
         pincode,
       });
       console.log("result", result);
-     if (result) {
-       jwt.sign(
-         { adminSchema: result },
-         jwtKey,
-         { expiresIn: "24h" },
-         (error, token) => {
-           if (error) {
-             resp.status(500).json({
-               status: 500,
-               Message: "Token creation failed",
-             });
-           } else {
-             resp.status(201).json({
-               auth: token,
-               status: 201,
-               Message: "Signup successfully",
-               data: result,
-             });
-           }
-         }
-       );
-     }
+      if (result) {
+        jwt.sign(
+          { adminSchema: result },
+          jwtKey,
+          { expiresIn: "24h" },
+          (error, token) => {
+            if (error) {
+              resp.status(500).json({
+                status: 500,
+                Message: "Token creation failed",
+              });
+            } else {
+              resp.status(201).json({
+                auth: token,
+                status: 201,
+                Message: "Signup successfully",
+                data: result,
+              });
+            }
+          }
+        );
+      }
     } catch (error) {
       console.log("error", error);
       return resp.status(500).json({
@@ -68,16 +68,46 @@ class clientController {
     }
   }
 
+
   async getAllUsers(req, res) {
     try {
-      const allUsers = await clientSchema.find();
+      // Check if the 'search' parameter is provided
+      const searchQuery = req.query.search
+        ? { name: { $regex: req.query.search, $options: "i" } }
+        : {};
+
+      const startDate = req.query.startDate;
+      const endDate = req.query.endDate;
+
+      const dateFilter = {};
+
+      if (startDate && endDate) {
+        dateFilter.createdAt = {
+          $gte: new Date(startDate),
+          $lte: new Date(endDate),
+        };
+      }
+
+      // Build the aggregation pipeline
+      let query = [
+        {
+          $match: {
+            ...searchQuery,
+            ...dateFilter,
+          },
+        },
+      ];
+
+      // Execute the aggregation query
+      const allUsers = await clientSchema.aggregate(query);
+
+      console.log("allUsers", allUsers);
       return res.status(200).json({
         status: 200,
         message: "Successfully fetched all users",
         data: allUsers,
       });
     } catch (error) {
-      console.error("Error fetching users:", error);
       return res.status(500).json({
         status: 500,
         message: "Internal server error",
