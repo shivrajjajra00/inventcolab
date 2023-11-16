@@ -1,9 +1,9 @@
-import './App.css';
-import React from 'react';
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import Login from './auth/login.js';
+import "./App.css";
+import React from "react";
+import { Routes, Route, BrowserRouter as Router, Form } from "react-router-dom";
+import Login from "./auth/login.js";
 import HomePage from "./homepage/HomePage.js";
-
+import UpdateClient from "./sideBar/UpdateClientModel.js";
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Login />} />
         <Route exact path="/home" element={<HomePage />} />
+        <Route exact path="/user/users/:_id" element={<UpdateClient />} />
       </Routes>
     </Router>
   );

@@ -60,14 +60,14 @@
 .login-form a {
   cursor: pointer;
 }
-.forgot_password{
+.forgot_password {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   margin-top: 15px;
 }
 .switch {
-display: flex;
+  display: flex;
 }
 .login-form button {
   background-color: #cf384b;
@@ -88,12 +88,10 @@ display: flex;
 
 /* Home page css----------------------------------------- */
 
-
 body {
   background-color: #f5f6ff;
   margin: 0;
   padding: 0;
-
 }
 
 .container {
@@ -111,8 +109,6 @@ body {
 .btn-add {
   border-radius: 5px;
 }
-
-
 
 .addContainer label {
   font-weight: bold;
@@ -132,7 +128,6 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
-
 
 /* styles.css */
 .navbar {
@@ -155,26 +150,21 @@ body {
   overflow-y: scroll;
 }
 
-
-.side_bar li{
+.side_bar li {
   list-style: none;
   margin-top: 50px;
   text-decoration: none;
   color: #000;
   font-weight: bold;
   font-size: 20px;
- 
 }
 .side_bar a:hover {
-  color: #cf384b; 
+  color: #cf384b;
 }
 
 .side_bar a:active {
-  color: #6d38cf; 
- 
+  color: #6d38cf;
 }
- 
-
 
 .navbar li {
   display: inline;
@@ -189,7 +179,7 @@ body {
 /* invioce and Resources ke liye comman css ----------------------------------------- */
 
 .invoice_box {
- background: #f1f1f1;
+  background: #f1f1f1;
   border: 1px solid #ededed;
   border-radius: 15px;
   height: -moz-fit-content;
@@ -198,13 +188,12 @@ body {
   inset: 0;
   margin: auto;
   max-width: 580px;
-  position:fixed;
-  width: 50%; 
+  position: fixed;
+  width: 50%;
   margin-bottom: 25px;
   overflow-y: scroll;
   height: 500px;
   margin-right: 200px;
-  
 }
 
 .invoice_box h1 {
@@ -213,12 +202,10 @@ body {
   text-align: center;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-
-  
 }
 
 .invoice_box input {
-    background-color: #fff;
+  background-color: #fff;
   width: 100%;
   padding: 8px;
   border: 1px;
@@ -240,10 +227,9 @@ body {
   color: #fff;
 }
 
-
 /* about Us page ke liye css  */
 
-.aboutUs_box{
+.aboutUs_box {
   background: #f1f1f1;
   border: 1px solid #ededed;
   height: -moz-fit-content;
@@ -252,7 +238,7 @@ body {
   inset: 0;
   margin: auto;
   max-width: 80%;
-  position:fixed;
+  position: fixed;
   margin-bottom: 25px;
   overflow-y: scroll;
   height: 500px;
@@ -261,9 +247,8 @@ body {
 }
 
 .aboutUs_box span {
- color: #cf384b; 
+  color: #cf384b;
 }
-
 
 /* Project Box ke liye css------------------------------- */
 
@@ -276,11 +261,184 @@ body {
   inset: 0;
   margin: auto;
   max-width: 80%;
-  position:fixed;
+  position: fixed;
   margin-bottom: 25px;
   overflow-y: scroll;
   height: 500px;
   width: 100%;
   margin-right: 0px;
- 
 }
+
+/* handle Invoice css ----------------------------------- */
+
+.handle_invoice {
+  background: #f1f1f1;
+  border: 1px solid #ededed;
+  border-radius: 0px;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+  inset: 0;
+  margin: auto;
+  max-width: 80%;
+  position: fixed;
+  width: 80%;
+  margin-bottom: 25px;
+  overflow-y: scroll;
+  height: 500px;
+  margin-right: 0px;
+}
+
+/* Example CSS for the product table */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.product-table th,
+.product-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.product-table th {
+  background-color: #f2f2f2;
+}
+
+.result-No-Found {
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  color: red;
+}
+
+/* update client css */
+/* client box header handle------------ */
+
+.invoice_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.search_bar {
+  padding: 10px;
+  width: 150px;
+  border: 1px solid gray;
+  border-radius: 8px;
+}
+
+.invoice_header button {
+  padding: 10px;
+  width: 120px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #beb4b4;
+}
+
+.update_box {
+  background: white;
+  border: 1px solid #ededed;
+  border-radius: 0px;
+  margin: auto;
+  max-width: 480px;
+  width: 50%;
+  position: fixed;
+  right: 0; 
+  margin-right: 250px;
+  bottom: 40px; 
+  padding: 10px 20px; 
+  z-index: 1;
+}
+
+/* .update_box {
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+ 
+  margin-bottom: 160px;
+  height: auto;
+
+  padding-top: 10px;   
+  padding-right: 20px; 
+  padding-bottom: 0;    
+  padding-left: 20px;
+  box-sizing: border-box;
+  position:absolute;
+  
+} */
+
+.update_box h1 {
+  color: black;
+}
+
+.update_box input {
+  background-color: white;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid rgb(76, 72, 72);
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.update_box span {
+  color: #cf384b;
+  font-size: 20px;
+}
+
+.faedit {
+  color: black;
+  cursor: pointer;
+}
+.fatrash {
+  color: black;
+  cursor: pointer;
+}
+
+.client_icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.actionBtn {
+  display: block;
+  border: 1px solid #ccc;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit_button {
+  display: flex;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 40px;
+}
+
+.cancel_btn {
+  background-color: #beb4b4;
+  color: #000;
+  border: none;
+  padding: 8px 10px;
+  margin-left: auto;
+  border-radius: 4px;
+}
+.ok_btn {
+  background-color: #cf384b;
+  color: #000;
+  border: #6d38cf;
+  padding: 10px 15px;
+  margin-left: 5px;
+  border-radius: 4px;
+  padding: 10px;
+}
+

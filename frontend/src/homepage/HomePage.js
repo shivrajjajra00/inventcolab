@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "../App.css";
-import Invoice from "../sideBar/Invoice";
 import Resources from "../sideBar/Resources"
 import AboutUs from "../sideBar/AboutUs";
 import Project from "../sideBar/Project"
 import Dashboard from "../sideBar/Dashboard";
+import HandleInvoice from "../sideBar/HandleInvoice";
 
 
 
@@ -47,7 +47,7 @@ var baseUrl = "http://localhost:4040";
         <div style={{ padding: "20px" }}>
          
           {content === "Dashboard" && <Dashboard/>}
-          {content === "Invoice" && <Invoice/>}
+          {content === "Invoice" && <HandleInvoice/>}
           {content === "Resources" && <Resources/>}
           {content === "Project" && <Project/>}
           {content === "About Us" && <AboutUs/>}

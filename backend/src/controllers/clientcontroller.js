@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/clientSchema.js"); // Import the User model
 const clientSchema = require("../models/clientSchema.js");
+const jwt = require("jsonwebtoken");
+const jwtKey = "e-comm";
 
 class clientController {
   async createUser(req, resp) {
@@ -34,13 +36,28 @@ class clientController {
         pincode,
       });
       console.log("result", result);
-      if (result) {
-        return resp.status(201).json({
-          status: 201,
-          message: "Signup successfully",
-          data: result,
-        });
-      }
+     if (result) {
+       jwt.sign(
+         { adminSchema: result },
+         jwtKey,
+         { expiresIn: "24h" },
+         (error, token) => {
+           if (error) {
+             resp.status(500).json({
+               status: 500,
+               Message: "Token creation failed",
+             });
+           } else {
+             resp.status(201).json({
+               auth: token,
+               status: 201,
+               Message: "Signup successfully",
+               data: result,
+             });
+           }
+         }
+       );
+     }
     } catch (error) {
       console.log("error", error);
       return resp.status(500).json({
