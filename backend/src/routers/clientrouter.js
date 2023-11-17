@@ -12,4 +12,5 @@ router.delete("/users/:id",tokenVerify, clientcontroller.deleteUser);
 router.get("/users/:id",tokenVerify, clientcontroller.getUserById);
 router.put("/users/:id",tokenVerify, clientcontroller.updateUserById);
 
+
 module.exports = router;

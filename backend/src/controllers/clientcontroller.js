@@ -59,15 +59,13 @@ class clientController {
         );
       }
     } catch (error) {
-      console.log("error", error);
       return resp.status(500).json({
         status: 500,
         message: "Internal server error",
-        data: ["Error during signup:", error],
+        error: error,
       });
     }
   }
-
 
   async getAllUsers(req, res) {
     try {
@@ -212,7 +210,7 @@ class clientController {
   }
 }
 
-console.log("908900");
+
 const clientcontroller = new clientController();
 
 module.exports = clientcontroller;

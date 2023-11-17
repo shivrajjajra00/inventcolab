@@ -13,6 +13,7 @@ export default function HandleInvoice() {
 
   const handleClose = () => {
     setShow(false);
+    getClientlist();
   };
 
   const handleOpen = () => {
@@ -37,9 +38,11 @@ export default function HandleInvoice() {
         console.log(result);
       }
     } catch (error) {
-      console.log("Error fetching product delete:", error);
+      console.log("Error fetching user delete:", error);
     }
   };
+
+
 
   const getClientlist = async () => {
     let token = localStorage.getItem("token");
